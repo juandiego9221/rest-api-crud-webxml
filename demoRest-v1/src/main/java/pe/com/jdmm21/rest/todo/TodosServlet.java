@@ -22,7 +22,7 @@ public class TodosServlet extends HttpServlet{
 	private static final Gson GSON = new GsonBuilder().create();
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String json = GSON.toJson(Todos.todos.values());
 		resp.setStatus(200);
 		resp.setHeader("Content-Type", "application/json");
@@ -30,7 +30,7 @@ public class TodosServlet extends HttpServlet{
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String json =  Util.readInputStream(req.getInputStream());
 		Todo todo =GSON.fromJson(json, Todo.class);
 		

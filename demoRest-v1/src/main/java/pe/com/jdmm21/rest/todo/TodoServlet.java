@@ -17,7 +17,7 @@ public class TodoServlet extends HttpServlet{
 	private static final Gson GSON = new GsonBuilder().create();
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String uri = req.getRequestURI();
 		Long id = Long.parseLong(uri.substring("/demoRest-v1/todos/".length()));
 		String json = GSON.toJson(Todos.todos.get(id));
@@ -27,7 +27,7 @@ public class TodoServlet extends HttpServlet{
 	}
 
 	@Override
-	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	public void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String uri = req.getRequestURI();
 		Long id = Long.parseLong(uri.substring("/demoRest-v1/todos/".length()));
 		
@@ -40,7 +40,7 @@ public class TodoServlet extends HttpServlet{
 	}
 	
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String uri = req.getRequestURI();
 		Long id = Long.parseLong(uri.substring("/demoRest-v1/todos/".length()));
 		
@@ -61,7 +61,7 @@ public class TodoServlet extends HttpServlet{
 	}
 	
 	@Override
-	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	public void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String uri = req.getRequestURI();
 		Long id = Long.parseLong(uri.substring("/demoRest-v1/todos/".length()));
 		
