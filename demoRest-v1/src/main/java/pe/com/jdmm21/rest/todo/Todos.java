@@ -1,4 +1,4 @@
-package pe.com.jdmm21.rest;
+package pe.com.jdmm21.rest.todo;
 
 import java.util.HashMap;
 import java.util.Map;

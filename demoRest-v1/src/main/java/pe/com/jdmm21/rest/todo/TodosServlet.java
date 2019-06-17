@@ -1,4 +1,4 @@
-package pe.com.jdmm21.rest;
+package pe.com.jdmm21.rest.todo;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import pe.com.jdmm21.rest.Util;
 
 public class TodosServlet extends HttpServlet{
 	private static final Gson GSON = new GsonBuilder().create();
