@@ -3,6 +3,7 @@ package pe.com.jdmm21.rest;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import pe.com.jdmm21.rest.router.RouteDefinition;
 
 /**
  * Unit test for simple App.
@@ -10,6 +11,29 @@ import junit.framework.TestSuite;
 public class AppTest 
     extends TestCase
 {
+	
+	public void testSimpleRoute() {
+		RouteDefinition route = new RouteDefinition("GET /todos");
+		
+		assertTrue(route.matches("GET", "/todos"));
+		assertTrue(!route.matches("POST", "/todos"));
+		assertTrue(!route.matches("GET", "/todos/1"));
+
+	}
+	
+	public void testSimpleRouteWithParameters() {
+		RouteDefinition route = new RouteDefinition("POST /todos/:id");
+//		
+		assertTrue(route.matches("POST", "/todos/1"));
+		assertTrue(route.matches("POST", "/todos/bar"));
+		assertTrue(!route.matches("POST", "/todos/1/foo"));
+		assertTrue(!route.matches("GET", "/todos/1"));
+		assertTrue(!route.matches("POST", "/todos"));
+		
+
+
+	}
+	
     /**
      * Create the test case
      *
